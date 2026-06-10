@@ -8,7 +8,7 @@ class VisionEncoder(nn.Module):
         super().__init__()
 
         # convert visual features
-        self.linear = nn.Linear(35, 128)
+        self.linear = nn.Linear(35, 256)
 
         self.relu = nn.ReLU()
 

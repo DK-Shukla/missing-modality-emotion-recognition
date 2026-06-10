@@ -8,7 +8,7 @@ class AudioEncoder(nn.Module):
         super().__init__()
 
         # convert audio features
-        self.linear = nn.Linear(74, 128)
+        self.linear = nn.Linear(74, 256)
 
         self.relu = nn.ReLU()
 
