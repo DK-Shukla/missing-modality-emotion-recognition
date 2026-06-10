@@ -12,6 +12,7 @@ class TransformerFusion(nn.Module):
         encoder_layer = nn.TransformerEncoderLayer(
             d_model=256,
             nhead=8,
+            dropout=0.5,
             batch_first=True
         )
 
