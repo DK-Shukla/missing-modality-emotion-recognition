@@ -11,7 +11,6 @@ def get_dataloaders(
 ):
 
     # load dataset once
-
     with open(data_path, "rb") as f:
         data = pickle.load(f)
 
@@ -33,19 +32,25 @@ def get_dataloaders(
     train_loader = DataLoader(
         train_dataset,
         batch_size=batch_size,
-        shuffle=True
+        shuffle=True,
+        num_workers=2,
+        pin_memory=True
     )
 
     valid_loader = DataLoader(
         valid_dataset,
         batch_size=batch_size,
-        shuffle=False
+        shuffle=False,
+        num_workers=2,
+        pin_memory=True
     )
 
     test_loader = DataLoader(
         test_dataset,
         batch_size=batch_size,
-        shuffle=False
+        shuffle=False,
+        num_workers=2,
+        pin_memory=True
     )
 
     return (
