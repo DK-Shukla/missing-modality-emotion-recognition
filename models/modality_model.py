@@ -5,7 +5,6 @@ from models.audio_encoder import AudioEncoder
 from models.vision_encoder import VisionEncoder
 
 from models.transformer_fusion import TransformerFusion
-
 from models.classifier import SentimentClassifier
 
 
@@ -15,13 +14,19 @@ class ModalityModel(nn.Module):
 
         super().__init__()
 
+        # modality encoders
+
         self.text_encoder = TextEncoder()
 
         self.audio_encoder = AudioEncoder()
 
         self.vision_encoder = VisionEncoder()
 
+        # fusion module
+
         self.fusion = TransformerFusion()
+
+        # sentiment classifier
 
         self.classifier = SentimentClassifier()
 
@@ -32,20 +37,20 @@ class ModalityModel(nn.Module):
         vision
     ):
 
-        text = self.text_encoder(text)
+        text_features = self.text_encoder(text)
 
-        audio = self.audio_encoder(audio)
+        audio_features = self.audio_encoder(audio)
 
-        vision = self.vision_encoder(vision)
+        vision_features = self.vision_encoder(vision)
 
-        fused = self.fusion(
-            text,
-            audio,
-            vision
+        fused_features = self.fusion(
+            text_features,
+            audio_features,
+            vision_features
         )
 
         output = self.classifier(
-            fused
+            fused_features
         )
 
         return output

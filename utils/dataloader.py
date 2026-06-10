@@ -1,14 +1,19 @@
+import pickle
+
 from torch.utils.data import DataLoader
 
 from datasets.mosei_dataset import MOSEIDataset
-from datasets.dataset_loader import load_mosei
 
 
 def get_dataloaders(
-        data_path,
-        batch_size=32):
+    data_path,
+    batch_size=32
+):
 
-    data = load_mosei(data_path)
+    # load dataset once
+
+    with open(data_path, "rb") as f:
+        data = pickle.load(f)
 
     train_dataset = MOSEIDataset(
         data,
