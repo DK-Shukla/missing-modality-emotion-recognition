@@ -3,7 +3,7 @@ import torch.nn as nn
 
 from models.modality_model import ModalityModel
 from utils.dataloader import get_dataloaders
-
+from tqdm import tqdm
 
 # dataset path
 DATA_PATH = "/content/drive/MyDrive/Modality/aligned_50.pkl"
@@ -49,8 +49,8 @@ for epoch in range(epochs):
 
     total = 0
 
-    for batch in train_loader:
-
+    for batch in tqdm(train_loader):
+        
         text = batch["text"].to(device)
         audio = batch["audio"].to(device)
         vision = batch["vision"].to(device)
