@@ -1,19 +1,31 @@
-# Modality
+# Missing Modality Emotion Recognition
 
-Multimodal Sentiment Analysis using CMU-MOSEI.
+Internship project focused on multimodal sentiment analysis using the CMU-MOSEI dataset.
 
 ## Dataset
-CMU-MOSEI (aligned_50.pkl)
+
+- CMU-MOSEI
+- aligned_50.pkl
 
 ## Modalities
+
 - Text
 - Audio
 - Vision
 
-## Planned Architecture
+## Current Baseline
+
 Text Encoder
-Audio Encoder
-Vision Encoder
+→ Audio Encoder
+→ Vision Encoder
 → Transformer Fusion
-→ Conditional Diffusion
-→ Sentiment Classification
+→ Sentiment Classifier
+
+## Task
+
+Binary Sentiment Classification
+
+- Negative
+- Positive
+
+Neutral samples are excluded.
