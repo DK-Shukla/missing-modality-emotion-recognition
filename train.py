@@ -137,7 +137,6 @@ for epoch in range(epochs):
 
         torch.save(
             model.state_dict(),
-            "best_model.pt"
+            "/content/drive/MyDrive/Modality/best_model.pt"
         )
-
         print("Best model saved")
