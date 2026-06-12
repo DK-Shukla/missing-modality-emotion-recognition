@@ -7,7 +7,7 @@ class AudioRecovery(nn.Module):
 
         super().__init__()
 
-        self.recovery = nn.Sequential(
+        self.network = nn.Sequential(
 
             nn.Linear(256, 512),
 
@@ -24,7 +24,7 @@ class AudioRecovery(nn.Module):
         semantic_features
     ):
 
-        recovered_audio = self.recovery(
+        recovered_audio = self.network(
             semantic_features
         )
 
