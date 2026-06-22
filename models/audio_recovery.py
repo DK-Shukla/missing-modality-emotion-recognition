@@ -8,21 +8,13 @@ class AudioRecovery(nn.Module):
         super().__init__()
 
         self.network = nn.Sequential(
-
             nn.Linear(256, 512),
-
             nn.ReLU(),
-
             nn.Dropout(0.3),
-
             nn.Linear(512, 256)
-
         )
 
-    def forward(
-        self,
-        semantic_features
-    ):
+    def forward(self, semantic_features):
 
         recovered_audio = self.network(
             semantic_features

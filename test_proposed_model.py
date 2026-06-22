@@ -2,26 +2,13 @@ import torch
 
 from models.proposed_model import ProposedModel
 
-
 model = ProposedModel()
 
-text = torch.randn(
-    8,
-    50,
-    768
-)
+text = torch.randn(8, 50, 768)
 
-audio = torch.randn(
-    8,
-    50,
-    74
-)
+audio = torch.randn(8, 50, 74)
 
-vision = torch.randn(
-    8,
-    50,
-    35
-)
+vision = torch.randn(8, 50, 35)
 
 output, recovered_audio, audio_features = model(
     text,

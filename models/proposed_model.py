@@ -17,9 +17,7 @@ class ProposedModel(nn.Module):
         super().__init__()
 
         self.text_encoder = TextEncoder()
-
         self.audio_encoder = AudioEncoder()
-
         self.vision_encoder = VisionEncoder()
 
         self.semantic_transformer = SemanticTransformer()

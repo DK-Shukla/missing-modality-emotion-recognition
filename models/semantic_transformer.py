@@ -26,14 +26,11 @@ class SemanticTransformer(nn.Module):
         vision_features
     ):
 
-        fused = torch.cat(
-        [
-        text_features,
-        audio_features,
-        vision_features
-        ],
-        dim=1
-    )
+        fused = (
+          text_features +
+          audio_features +
+          vision_features
+     )
 
         semantic_features = self.transformer(
             fused
