@@ -3,7 +3,7 @@ import torch.nn as nn
 from models.text_encoder import TextEncoder
 from models.audio_encoder import AudioEncoder
 from models.vision_encoder import VisionEncoder
-
+from models.cross_modal_attention import CrossModalAttention
 from models.semantic_transformer import SemanticTransformer
 from models.audio_recovery import AudioRecovery
 
@@ -19,7 +19,7 @@ class ProposedModel(nn.Module):
         self.text_encoder = TextEncoder()
         self.audio_encoder = AudioEncoder()
         self.vision_encoder = VisionEncoder()
-
+        self.cross_attention = CrossModalAttention()
         self.semantic_transformer = SemanticTransformer()
 
         self.audio_recovery = AudioRecovery()
@@ -38,6 +38,12 @@ class ProposedModel(nn.Module):
         audio_features = self.audio_encoder(audio)
 
         vision_features = self.vision_encoder(vision)
+
+        enhanced_text = self.cross_attention(
+            text_features,
+            audio_features,
+            vision_features
+          )
 
         semantic_features = self.semantic_transformer(
             text_features,
