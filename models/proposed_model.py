@@ -46,10 +46,10 @@ class ProposedModel(nn.Module):
           )
 
         semantic_features = self.semantic_transformer(
-            text_features,
+            enhanced_text,
             audio_features,
             vision_features
-        )
+         )
 
         recovered_audio = self.audio_recovery(
             semantic_features
