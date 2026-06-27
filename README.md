@@ -1,3 +1,36 @@
+Text Input
+     │
+Text Encoder
+     │
+     ▼
+
+Audio Input ─► Audio Encoder ─┐
+                              │
+Vision Input ─► Vision Encoder│
+                              ▼
+                   Cross Modal Attention
+                              │
+                              ▼
+                    Semantic Transformer
+                              │
+                              ▼
+                     Audio Recovery Module
+                              │
+                    Residual Fusion
+                              │
+                           Dropout
+                              │
+                              ▼
+                    Sentiment Classifier
+                              │
+                              ▼
+                   Positive / Negative
+
+
+
+
+
+
 # Missing Modality Emotion Recognition
 
 Internship project focused on multimodal sentiment analysis using the CMU-MOSEI dataset.
