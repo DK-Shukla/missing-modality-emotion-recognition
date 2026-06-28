@@ -12,13 +12,24 @@ from models.classifier import SentimentClassifier
 
 class ProposedModel(nn.Module):
 
-    def __init__(self):
+    def __init__(
+        self,
+        audio_dim=74,
+        vision_dim=35
+    ):
 
         super().__init__()
 
         self.text_encoder = TextEncoder()
-        self.audio_encoder = AudioEncoder()
-        self.vision_encoder = VisionEncoder()
+
+        self.audio_encoder = AudioEncoder(
+            input_dim=audio_dim
+        )
+
+        self.vision_encoder = VisionEncoder(
+            input_dim=vision_dim
+        )
+        
         self.cross_attention = CrossModalAttention()
         self.semantic_transformer = SemanticTransformer()
 
